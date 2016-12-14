@@ -1,6 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var ctrlMain = require('../controllers/main');
-router.get('/', ctrlMain.homepageController);
-router.get('/help', ctrlMain.helppageController);
+/*Controller Section*/
+var mainCtrl = require('../controllers/main');
+var locationsCtrl = require('../controllers/locations');
+var othersCtrl = require('../controllers/others');
+/*Controller Routing Linkage Section*/
+/*Location Page Routing*/
+router.get('/', locationsCtrl.homeList);
+router.get('/location', locationsCtrl.locationInfo);
+router.get('/location/review/new', locationsCtrl.addReview);
+/*Others Page Routing*/
+router.get('/others', othersCtrl.aboutInfo);
 module.exports = router;

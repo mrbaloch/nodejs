@@ -38,5 +38,5 @@ Thumbs.db
 
 # Directory #
 node_modules/
-bootstrap/
-*.min.js
+#bootstrap/
+##*.min.js
