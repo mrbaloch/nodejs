@@ -2,10 +2,38 @@ doctype html
 html
   head
     title= title
+    script(src='/javascripts/jquery.min.js')
+    //script(src='/javascripts/index.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/bootstrap/css/amelia.bootstrap.css')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
   body
+    ul.nav.nav-pills.nav-justified
+     li.active(role="presentation")
+      a(href="/") Home
+     li(role="presentation")
+      a(href="#") Others
+     li.disabled(role="presentation")
+      a(href="#") About
+     li.dropdown(role="presentation")
+      a.dropdown-toggle(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false") Dropdown
+       span.caret
+       ul.dropdown-menu
+        li 
+         a(href="#") X
+        li 
+         a(href="#") XY
+       
     block content
-    script(src='/javascripts/jquery.min.js')
-    script(src='/bootstrap/js/bootstrap.min.js')
+
+
+//-<ul class="nav nav-tabs">
+//-  <li role="presentation" class="active"><a href="#">Home</a></li>
+//-  <li role="presentation"><a href="#">Profile</a></li>
+//-  <li role="presentation"><a href="#">Messages</a></li>
+//-</ul>
+//-.navbar.navbar-default.navbar-fixed-top
+//-.container-fluid
+//-    .navbar-header
+//-        a.navbar-brand(href='/')Loc8r
