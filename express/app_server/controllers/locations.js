@@ -7,7 +7,7 @@ module.exports.homeList = function (req, res) {
 };
 /* GET location home page. */
 module.exports.locationInfo = function (req, res) {
-    res.render('index', {
+    res.render('location-info', {
         'title': 'Locations : Express Application'
     })
 };
