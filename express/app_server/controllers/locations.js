@@ -1,8 +1,9 @@
 /* GET home page. */
 module.exports.homeList = function (req, res) {
-    res.render('index', {
-        title: 'Index : Express Application'
-    })
+    // res.render('index', {
+    //     title: 'Index : Express Application'
+    // })
+    res.render('locations-list', {title: 'Home'})
 };
 /* GET location home page. */
 module.exports.locationInfo = function (req, res) {
