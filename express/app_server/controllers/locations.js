@@ -13,7 +13,7 @@ module.exports.locationInfo = function (req, res) {
 };
 /* GET location add review. */
 module.exports.addReview = function (req, res) {
-    res.render('index', {
+    res.render('location-review', {
         'title': 'Review : Express Application'
     })
 };
