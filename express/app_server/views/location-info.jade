@@ -31,12 +31,12 @@ block content
                     span.glyphicon.glyphicon-ok
                     | &nbsp;Hot Drinks
                     | &nbsp;
-                .col-sm-4.col-xs-10                
+                .col-sm-4.col-xs-10
                   span.pull-left.label.label-success
                     span.glyphicon.glyphicon-ok
                     | &nbsp;Cold Drinks
                     | &nbsp;
-                .col-sm-4.col-xs-10                
+                .col-sm-4.col-xs-10
                   span.pull-left.label.label-primary
                     span.glyphicon.glyphicon-ok
                     | &nbsp;Hot-n-Cold Drinks
@@ -44,11 +44,20 @@ block content
       .row
         .col-sm-10.col-xs-12
           .panel.panel-primary
-            .panel-heading.panel-title Customer Reviews
+            .panel-heading.panel-title
+              .row
+                .col-sm-8.col-xs-7 Customer Reviews
+                .col-sm-4.col-xs-5
+                  a.btn-xs.btn-default.pull-right(href='/location/review/new') Add Review
             .panel-body
               span.glyphicon.glyphicon-star
               span.glyphicon.glyphicon-star
               span.glyphicon.glyphicon-star
               span.glyphicon.glyphicon-star
               span.glyphicon.glyphicon-star
-              | &nbsp; Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p 
+              | &nbsp; Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p
+    .col-sm-4.col-xs-12
+      .panel.panel-success
+        .panel-heading.panel-title Location Map
+        .panel-body
+          img.img-responsive.img-rounded(src='https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=AIzaSyD16q-912waNLsDs1dUYx_RuoU4G6P9Gj0')
