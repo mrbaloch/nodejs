@@ -1,43 +1,51 @@
 extends layout
 
 block content
-  .container
+  .row.page-header
     .col-sm-8.col-xs-12
       h2 Starcups
-      span.glyphicon.glyphicon-star
-      span.glyphicon.glyphicon-star
-      span.glyphicon.glyphicon-star
-      span.glyphicon.glyphicon-star-empty
-      span.glyphicon.glyphicon-star-empty
-      p.address 125 High Street, Reading, Marathalli
-      .col-sm-8.col-xs-10
-        .panel.panel-warning
-          .panel-heading.panel-title Opening Hours
-          .panel-body Monday-Friday
-      .col-sm-8.col-xs-10
-        .panel.panel-danger
-          .panel-heading.panel-title Facilities
-          .panel-body
-            span.label.label-warning 
-              span.glyphicon.glyphicon-ok 
-              | &nbsp; Hot Drinks 
-              | &nbsp; 
-            span.label.label-success 
-              span.glyphicon.glyphicon-ok 
-              | &nbsp; Cold Drinks 
-              | &nbsp; 
-            span.label.label-primary 
-              span.glyphicon.glyphicon-ok 
-              | &nbsp; Hot-n-Cold Drinks 
-              | &nbsp; 
-      .col-sm-10.col-xs-12
-        .panel.panel-primary
-          .panel-heading.panel-title Customer Reviews
-          .panel-body
+      .row
+        .col-sm-8.col-xs-10
+          p.rating
             span.glyphicon.glyphicon-star
             span.glyphicon.glyphicon-star
             span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-star 
-            | &nbsp; Simon Holmes p
-            
+            span.glyphicon.glyphicon-star-empty
+            span.glyphicon.glyphicon-star-empty
+      .row
+        .col-sm-8.col-xs-10
+          p.address 125 High Street, Reading, Marathalli
+      .row
+        .col-sm-8.col-xs-10
+          .panel.panel-warning
+            .panel-heading.panel-title Opening Hours
+            .panel-body Monday-Friday
+      .row
+        .col-sm-8.col-xs-10
+          .panel.panel-danger
+            .panel-heading.panel-title(data-toggle='collapse' data-target='#items') Facilities
+            .panel-body
+              #items
+                span.label.label-warning
+                  span.glyphicon.glyphicon-ok
+                  | &nbsp; Hot Drinks
+                  | &nbsp;
+                span.label.label-success
+                  span.glyphicon.glyphicon-ok
+                  | &nbsp; Cold Drinks
+                  | &nbsp;
+                span.label.label-primary
+                  span.glyphicon.glyphicon-ok
+                  | &nbsp; Hot-n-Cold Drinks
+                  | &nbsp;
+      .row
+        .col-sm-10.col-xs-12
+          .panel.panel-primary
+            .panel-heading.panel-title Customer Reviews
+            .panel-body
+              span.glyphicon.glyphicon-star
+              span.glyphicon.glyphicon-star
+              span.glyphicon.glyphicon-star
+              span.glyphicon.glyphicon-star
+              span.glyphicon.glyphicon-star
+              | &nbsp; Simon Holmes p
