@@ -38,5 +38,6 @@ Thumbs.db
 
 # Directory #
 node_modules/
+.idea/
 #bootstrap/
 ##*.min.js
