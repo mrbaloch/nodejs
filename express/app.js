@@ -4,9 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+///mongoose db coupling -this coupling needs to be done first
+require('./app_api/models/db');
+require('./app_api/models/locations_schema');
+
+///routing settings - this for the later
 var routes = require('./app_server/routes/index');
+var api_routes = require('./app_api/routes/index');
 var users = require('./app_server/routes/users');
-require('./app_server/models/db')
+
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
@@ -21,6 +28,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
+app.use('/api', api_routes);
 app.use('/users', users);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
