@@ -13,8 +13,8 @@ router.delete('/locations/:locationId', locationsController.locationsDeleteOne);
 
 //reviews api's
 router.post('/locations/:locationId/reviews', reviewsController.reviewsCreate);
-router.get('locations/:locationId/reviews', reviewsController.reviewsReadOne);
-router.put('locations/:locationId/reviews', reviewsController.reviewsUpdateOne);
-router.delete('locations/:locationId/reviews', reviewsController.reviewsDeleteOne);
+router.get('/locations/:locationId/reviews/:reviewId', reviewsController.reviewsReadOne);
+router.put('/locations/:locationId/reviews/:reviewId', reviewsController.reviewsUpdateOne);
+router.delete('/locations/:locationId/reviews/:reviewId', reviewsController.reviewsDeleteOne);
 
 module.exports = router;

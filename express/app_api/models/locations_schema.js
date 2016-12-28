@@ -35,7 +35,7 @@ var timingScheduleSchema = new mongoose.Schema({
 
 var locationSchema = new mongoose.Schema({
     name: {type: String, required: true},
-
+    address:String,
     rating: {
         type: Number, "default": 0,
         min: 0, max: 5
@@ -44,8 +44,9 @@ var locationSchema = new mongoose.Schema({
     reviews: [reviewsSchema],
     timings: [timingScheduleSchema],
     coordinates: {
-        type: Number,
-        index: '2dsphere'
+        type: [Number],
+        index: '2dsphere',
+        required: true
     }
 });
 
@@ -53,14 +54,15 @@ var locationSchema = new mongoose.Schema({
 //model - model_name, schema, collection_name
 mongoose.model('Locations', locationSchema, 'locations');
 
-// db.locations.update({name: 'Noise'},
+// db.locations.update({name: 'Toit'},
 //     {
-//         $push: {
-//             reviews: {
-//                 author: 'Vivek Singh',
-//                 rating: 5,
-//                 reviewText: 'Awesome Brewery and Location',
+//         $set: {
+//             reviews: [{
+//                 id: ObjectId(),
+//                 rating: 4,
+//                 author: 'Deepak Singh',
+//                 reviewText: 'Awesome Coffee and Cup Cakes',
 //                 createdOn: new Date("Dec 25, 2016")
-//             }
+//             }]
 //         }
 //     })
