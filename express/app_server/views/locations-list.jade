@@ -9,11 +9,12 @@ block content
           small &nbsp; #{title_element.desc}
     .row
       .col-xs-12.col-sm-8
+        .error=message
         .row.list-group
           each location_list in locations_list
             .col-xs-12.col-sm-12.list-group-item
               h4
-                a(href='/location')=location_list.name
+                a(href='/location/#{location_list._id}')=location_list.name
                 small &nbsp;
                 +ratingFn(location_list.rating)
                 span.badge.pull-right.badge-default=location_list.distance

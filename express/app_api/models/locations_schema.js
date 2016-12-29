@@ -4,17 +4,18 @@
 var mongoose = require('mongoose');
 
 var reviewsSchema = new mongoose.Schema({
-    author: String,
+    author: {type: String, required: true},
     rating: {
         type: Number,
         "default": 0,
         min: 0,
-        max: 5
+        max: 5,
+        required: true
     },
-    reviewText: String,
+    reviewText: {type: String, required: true},
     createdOn: {
         type: Date,
-        "default": Date.now()
+        "default": Date.now
     }
 });
 
@@ -35,7 +36,7 @@ var timingScheduleSchema = new mongoose.Schema({
 
 var locationSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    address:String,
+    address: String,
     rating: {
         type: Number, "default": 0,
         min: 0, max: 5

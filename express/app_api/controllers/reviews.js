@@ -17,12 +17,12 @@ var addReviewToLocation = function (req, res, data) {
         });
         data.save(function (err, data) {
             if (err) {
-                sendJsonResponse(res, 404, {"message": "not able to save"});
+                sendJsonResponse(res, 404, err);
             } else {
                 var review;
                 review = data.reviews[data.reviews.length - 1];
                 updateAverageRating(data._id);
-                sendJsonResponse(res, 200, review);
+                sendJsonResponse(res, 201, review);
             }
         })
     }
@@ -172,7 +172,7 @@ module.exports.reviewsDeleteOne = function (req, res) {
                     sendJsonResponse(res, 404, err);
                     return;
                 } else if (!data) {
-                    sendJsonResponse(res, 404, 'Data Not Found: For the location');
+                    sendJsonResponse(res, 404, 'data not found: for the location');
                     return;
                 }
                 if (data.reviews && data.reviews.length > 0) {
@@ -190,7 +190,7 @@ module.exports.reviewsDeleteOne = function (req, res) {
                         });
                     }
                     else {
-                        sendJsonResponse(res, 404, {status: "No Review Found"});
+                        sendJsonResponse(res, 404, {status: "no review found"});
                     }
                 } else {
                     sendJsonResponse(res, 404, {status: "No Reviews Found: for the given locationID"});

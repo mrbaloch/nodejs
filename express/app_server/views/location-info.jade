@@ -1,46 +1,43 @@
 extends layout
+include _includes/sharedHTMLfunctions
 
 block content
   .row.page-header
     .col-sm-8.col-xs-12
-      h2=title
+      h2=name
       .row
         .col-sm-8.col-xs-10
           p.rating
-            span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-star-empty
-            span.glyphicon.glyphicon-star-empty
+            +ratingFn(rating)
       .row
         .col-sm-8.col-xs-10
-          p.address 125 High Street, Reading, Marathalli
+          p.address=address
       .row
         .col-sm-8.col-xs-10
+          h4 #{name } Timings
           .panel.panel-warning
-            .panel-heading.panel-title Opening Hours
-            .panel-body Monday-Friday
+            each timing in timings
+              .panel-heading.panel-title
+                .row
+                  .col-sm-6.col-xs-12
+                    span.badge #{timing.days}
+                  .col-sm-6.col-xs-12
+                    span.badge.pull-right #{timing.opening} - #{timing.closing}
       .row
         .col-sm-8.col-xs-10
           .panel.panel-danger
-            .panel-heading.panel-title(data-toggle='collapse' data-target='#items') Facilities
-            .panel-body
-              #items.panel-collapse.collapse.in
-                .col-sm-4.col-xs-10
-                  span.pull-left.label.label-warning
-                    span.glyphicon.glyphicon-ok
-                    | &nbsp;Hot Drinks
-                    | &nbsp;
-                .col-sm-4.col-xs-10
-                  span.pull-left.label.label-success
-                    span.glyphicon.glyphicon-ok
-                    | &nbsp;Cold Drinks
-                    | &nbsp;
-                .col-sm-4.col-xs-10
-                  span.pull-left.label.label-primary
-                    span.glyphicon.glyphicon-ok
-                    | &nbsp;Hot-n-Cold Drinks
-                    | &nbsp;
+            .panel-heading.panel-title(data-toggle='collapse' data-target='#items')
+              .row
+                .col-sm-4.col-xs-12
+                  span.badge Facilities
+                .col-sm-8.col-xs-12
+                  #items.panel-collapse.collapse.in
+                    each facility in facilities
+                      span.badge.pull-right
+                        | &nbsp;
+                        span.glyphicon.glyphicon-ok=facility
+                        | &nbsp;
+
       .row
         .col-sm-10.col-xs-12
           .panel.panel-primary
@@ -48,16 +45,18 @@ block content
               .row
                 .col-sm-8.col-xs-7 Customer Reviews
                 .col-sm-4.col-xs-5
-                  a.btn-xs.btn-default.pull-right(href='/location/review/new') Add Review
-            .panel-body
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star
-              span.glyphicon.glyphicon-star
-              | &nbsp; Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p  Simon Holmes p
+                  a.btn-xs.btn-default.pull-right(href='/location/#{_id}/review/new') Add Review
+            each review in reviews
+              .panel-body
+                +ratingFn(review.rating)
+                | &nbsp;
+                span.badge #{review.reviewText}
+                span.badge.pull-right #{review.author}
     .col-sm-4.col-xs-12
       .panel.panel-success
-        .panel-heading.panel-title Location Map
+        .panel-heading.panel-title
+          span.badge #{name} on the map
         .panel-body
-          img.img-responsive.img-rounded(src='https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&key=AIzaSyD16q-912waNLsDs1dUYx_RuoU4G6P9Gj0')
+          img.img-responsive.img-rounded(src='http://maps.googleapis.com/maps/api/staticmap?center=#{coordinates[1]},#{coordinates[0]}&zoom=17&size=400x350&sensor=false&markers=#{coordinates[1]},#{coordinates[0]}&scale=2&key=AIzaSyD16q-912waNLsDs1dUYx_RuoU4G6P9Gj0')
+
+          //https://maps.googleapis.com/maps/api/staticmap/json?latlng=40.714224,-73.961452&size=600x300&key=AIzaSyD16q-912waNLsDs1dUYx_RuoU4G6P9Gj0

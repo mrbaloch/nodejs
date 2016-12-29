@@ -5,15 +5,17 @@ block content
     .row
       .col-sm-8.col-xs-12
         .row.page-header
-          h1 Review StarCups
+          h1 Add Review : #{data.name}
+          -if (error == 'val')
+            .alert.alert-danger(role="alert") All fields required, please try again
     .row
       .col-sm-12.col-xs-12
-        form.form-horizontal(action='/location', method='get', role='form')
+        form.form-horizontal(action='', method='post', role='form')
           .form-group
             .col-sm-2.col-xs-12
               .label.control-label(for='name') Name
             .col-sm-10.col-xs-12
-              .input#name.form-control(name='name')
+              input#name.form-control(type='text',name='name')
           .form-group
             .col-sm-2.col-xs-12
               .label.control-label(for='rating') Rating

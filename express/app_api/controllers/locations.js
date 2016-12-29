@@ -108,9 +108,10 @@ module.exports.locationsListByDistance = function (req, res) {
                 name: doc.obj.name,
                 address: doc.obj.address,
                 _id: doc.obj._id,
-                rating: doc.obj.rating
-            })
-        })
+                rating: doc.obj.rating,
+                items:doc.obj.facilities
+            });
+        });
         sendJsonResponse(res, 200, locations);
     });
     // sendJsonResponse(res, 200, {"status": "success"});
